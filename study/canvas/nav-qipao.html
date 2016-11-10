@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>canvas 鼠标气泡+扇形导航</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #canvas{
+            background: #000;
+        }
+        #nav{
+            width: 143px;
+            height: 198px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+        }
+        #nav li{
+            position: absolute;
+            left: 0;
+            top: 0;
+            list-style: none;
+            transform-origin: 35px 185px;
+            box-shadow: 2px 2px 15px rgba(0,0,0,.2);
+            transition:1s;
+        }
+        .tab{
+            background-repeat: no-repeat;
+            background-color: #007bc4;
+            background-image: url(img/tab.png);
+            width: 143px;
+            height: 198px;
+        }
+        .tab1{
+            background-position: 0 0;
+        }
+        .tab2{
+            background-position: -143px 0;
+        }
+        .tab3{
+            background-position: -285px 0;
+        }
+        .tab4{
+            background-position: -428px 0;
+        }
+        .tab5 {
+            background-position: -571px 0;
+        }
+        .tab6{
+            background-position: -714px 0;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <ul id="nav">
+        <!--li为双数-->
+        <li><div class="tab tab1"></div></li>
+        <li><div class="tab tab2"></div></li>
+        <li><div class="tab tab3"></div></li>
+        <li><div class="tab tab4"></div></li>
+        <li><div class="tab tab5"></div></li>
+        <li><div class="tab tab6"></div></li>
+    </ul>
+<script>
+
+    window.onload = function(){
+        //扇形效果
+        var nav = document.getElementById('nav');
+        var lis = document.querySelectorAll('li'),
+                liLen = lis.length,
+                deg = 180/liLen;//li旋转间隔的角度
+
+        //给封面添加点击事件
+        var firstClickFalg = true;//是否是第一次点击封面
+        lis[liLen-1].onclick = function(){
+            /*
+            *    i:  0    1   2   3   4    5   6
+            *    n:  -3  -2  -1   0   1    2   3
+            * 度数：-90  -60 -30  0  30   60  90
+             */
+            for(var i =0;i<liLen;i++){
+                if(firstClickFalg){//第一次点击：展开
+                    //拿i的值减去li个数的一半=n，n*30 = 对应的旋转度数
+                    var n = i-liLen/2;
+                    n = n*deg; //每个错位30度
+                    lis[i].style.transform = 'rotate(' + n + 'deg)';
+                }else{//第一次点击：折叠
+                    lis[i].style.transform = 'rotate(0)';
+                }
+            }
+            firstClickFalg = !firstClickFalg;
+        };
+        //给每个li添加点击事件
+        for(var i=0; i<liLen-1; i++){//除去封面
+            lis[i].index = i;
+            lis[i].onclick = function(){
+                console.log(this);
+                // 点击的图片转到0度；其右边加上相应度数（紧挨着的要加上双倍，以便显示更全）
+                var leftDeg = 0,
+                        rightDeg = deg;
+                this.style.transform = 'rotate(0)';//当前图片旋转
+                for(var j=this.index-1;j>=0;j--){//左边图片旋转：依次减去相应度数；
+                    leftDeg -= deg;
+                    lis[j].style.transform = 'rotate(' + leftDeg + 'deg)';
+                }
+                for(var j=this.index+1;j<liLen;j++){//右边图片旋转：依次减去相应度数；
+                    rightDeg += deg;
+                    lis[j].style.transform = 'rotate(' + rightDeg + 'deg)';
+                }
+            };
+        }
+
+        //canvas气泡效果
+        var canvas = document.getElementById('canvas');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight+400;//随意加400
+        var ctx = canvas.getContext('2d');
+        var balls=[];//存放页面上圆的数组
+        var timer;
+        var colors = ['#69d2e7','#a7db8','#e0e4cc','#f38630','#fa6900','#ff4e50','#f9d423'];
+
+        //圆：半径不同、颜色不同、位置不同、速度不同
+        //var ball = { x：x轴位置，y：y轴的位置，r：圆的半径，vx：x轴速度，vy：y轴的速度，color：圆的颜色}
+        //在canvas上画圆
+        function drag(ball){
+            ctx.beginPath();//开始的路径
+            ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI*2);//x,y,半径，起始弧度，结束弧度  //角度转弧度：角度*π/180
+            ctx.fillStyle = ball.color;
+            ctx.globalCompositeOperation = 'lighter';
+            ctx.fill();
+        }
+
+        //生成min到max的一个随机数
+        function random(min,max){
+            return Math.round(Math.random()*(max-min)+min);
+        }
+
+        var on = true;//鼠标移动时，定时器也可以跑
+        canvas.onmousemove = function(e){
+            //在移动时创建两个圆就够了
+            for(var i=0;i<2;i++){
+                var ball = { //鼠标范围5像素会好看些
+                    x:  random(-5,5)+ e.clientX,
+                    y:  random(-5,5)+ e.clientY + window.pageYOffset,//window.pageYOffset：滚动条的距离
+                    r:  random(10,25),
+                    vx: Math.random()-0.5,
+                    vy: Math.random()-0.5,
+                    color:colors[random(0,colors.length-1)]
+                };
+                balls.push(ball);
+                if(balls.length>150){//整屏不能超过300个球
+                    balls.shift();//删除前面的球
+                }
+            }
+            //让定时器只开启一次，去除鼠标移动时，一直显示globalCompositeOperation的空白轨迹
+            if(on){
+                clearInterval(timer);
+                timer = setInterval(drawBall,30);
+                on=false;
+            }
+            function drawBall(){
+                ctx.clearRect(0,0,canvas.width,canvas.height);//全清空画布
+                for(var i=0;i<balls.length;i++){
+                    //重新更改球的位置和半径，使球看上去会动
+                    balls[i].x += balls[i].vx*8;//通过速度改变x轴位置，8只是一个比较好的值
+                    balls[i].y += balls[i].vy*8;
+                    balls[i].r = balls[i].r*0.94;//改变半径，0.94只是一个比较好的值
+
+                    balls[i].index = i;
+                    //当小球的半径<1时，不让canvas再画它，即直接消失
+                    if(balls[i].r<1){
+                        balls.splice(balls[i].index, 1);//删掉过小的小球
+                        continue; //不画该小球
+                    }
+                    drag(balls[i]);
+                    if(!balls.length){//没有小球时，清除定时器
+                        clearInterval(timer);
+                        on =true;
+                    }
+                }
+
+            }
+        };
+
+    };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>黑客帝国 1和0掉落</title>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+<script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+    //画布 的大小设置
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    var textStr = '01',
+//    var textStr = '0123456789',
+            txtArr = textStr.split(""),//要输出的信息
+            fontSize = 16,
+            font = fontSize +'px arial',
+            columns = canvas.width/fontSize;//每列显示多少个信息
+
+    var drops = [];//数组，统计下落的位置
+    for(var i=0;i<columns;i++){
+        drops[i] = 1;
+    }
+    function draw(){
+        //绘制背景
+        ctx.fillStyle = 'rgba(0,0,0,0.05)';
+//        ctx.fillStyle = 'rgba(0,0,0,0.5)';
+        ctx.fillRect(0,0,canvas.width,canvas.height);//起始和终点的x和y
+        //绘制文字
+        ctx.fillStyle = '#0f0';
+        ctx.font = font;
+        for(var i=0;i<columns;i++){
+            var text = txtArr[Math.floor(Math.random()*(txtArr.length))];
+            ctx.fillText(text,i*fontSize,drops[i]*fontSize);//文字、x、y
+            if(drops[i]*fontSize>canvas.height || Math.random()>0.95){
+                drops[i] = 0;//把位置恢复到最上面
+            }
+               drops[i]++;//控制下落的位置
+        }//end for
+    }
+    setInterval(draw,33);
+</script>
+
+</body>
+</html>

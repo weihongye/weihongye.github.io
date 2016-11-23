@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1,minimum-scale=1, maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content="小米超神是小米首款公平竞技MOBA手游，在移动端完美还原PC上的体验，让玩家能体会到精妙的策略性和激烈的对抗性。">
+    <meta name="keywords" content="小米超神，小米超神官网，小米超神激活，小米超神下载，小米超神社区">
+    <title>【小米超神】官方网站</title>
+    <link href="css/common.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+</head>
+<body id="main">
+<div class="container" v-cloak v-xmcs-bd-statistic>
+    <div class="header-wrap">
+        <c-header class="game-header"></c-header>
+    </div>
+
+    <div class="wrapper">
+        <div class="banner">
+            <div class="screenshots" id="screenshots">
+                <ul class="clear">
+                    <li><img src="../xmcs/img/test-index1.jpg"/></li>
+                    <li class="hidden"><img src="../xmcs/img/test-index2.jpg"/></li>
+                </ul>
+            </div>
+            <div class="shots-tool">
+                <ul class="btn clear">
+                    <li class="on">1</li>
+                    <li>2</li>
+                </ul>
+            </div>
+        </div>
+        <header>
+            <ul>
+                <li data-href="http://xmcs.mi.com/heros/list.html" v-on:click="jumpUrl"><span class="hero"></span></li>
+                <li data-href="http://xmcs.mi.com/heros/list.html" v-on:click="jumpUrl"><span class="cs"></span></li>
+                <li data-href="http://xmcs.mi.com/heros/list.html" v-on:click="jumpUrl"><span class="shequ"></span></li>
+                <li data-href="http://xmcs.mi.com/heros/list.html" v-on:click="jumpUrl"><span class="act"></span></li>
+            </ul>
+        </header>
+        <div class="news-wrap">
+            <ul class="clear">
+                <li>
+                    <a href="http://xmcs.mi.com/heros/list.html">
+                        <div class="li-wrap">
+                            <div class="info">
+                                <span class="class gg">公告</span>
+                                <span class="title">各路英雄大集结各路英雄大集结各路英雄大集结</span>
+                            </div>
+                            <div class="time">10-28</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://xmcs.mi.com/heros/list.html">
+                        <div class="li-wrap">
+                            <div class="info">
+                                <span class="class new">新闻</span>
+                                <span class="title">各路英雄大集结</span>
+                            </div>
+                            <div class="time">10-28</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://xmcs.mi.com/heros/list.html">
+                        <div class="li-wrap">
+                            <div class="info">
+                                <span class="class gl">新闻</span>
+                                <span class="title">各路英雄大集结</span>
+                            </div>
+                            <div class="time">10-28</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://xmcs.mi.com/heros/list.html">
+                        <div class="li-wrap">
+                            <div class="info">
+                                <span class="class gg">公告</span>
+                                <span class="title">各路英雄大集结各路英雄大集结各路英雄大集结</span>
+                            </div>
+                            <div class="time">10-28</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://xmcs.mi.com/heros/list.html">
+                        <div class="li-wrap">
+                            <div class="info">
+                                <span class="class new">新闻</span>
+                                <span class="title">各路英雄大集结</span>
+                            </div>
+                            <div class="time">10-28</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://xmcs.mi.com/heros/list.html">
+                        <div class="li-wrap">
+                            <div class="info">
+                                <span class="class gl">新闻</span>
+                                <span class="title">各路英雄大集结</span>
+                            </div>
+                            <div class="time">10-28</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="code-con">
+            <div class="code-info">
+                <ul class="code-nav clear">
+                    <li class="active" v-on:click="changeCode"><span class="weixin"></span></li>
+                    <li v-on:click="changeCode"><span class="weibo"></span></li>
+                </ul>
+            </div>
+            <div class="code-wrap">
+                <div class="code wx-code active"></div>
+                <div class="code wb-code"></div>
+            </div>
+        </div>
+    </div>
+    <c-footer footer-tab="index"></c-footer>
+</div>
+<c-loading v-bind:load="loadFlag"></c-loading>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1, maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content="小米超神是小米首款公平竞技MOBA手游，在移动端完美还原PC上的体验，让玩家能体会到精妙的策略性和激烈的对抗性。">
+    <meta name="keywords" content="小米超神，小米超神官网，小米超神激活，小米超神下载，小米超神社区">
+    <title>【小米超神】官方网站</title>
+<link href="css/common.css" rel="stylesheet"><link href="css/video.css" rel="stylesheet"></head>
+<body id="main">
+<div class="container" v-cloak v-xmcs-bd-statistic>
+    <div class="header-wrap">
+        <c-header class="game-header"></c-header>
+    </div>
+
+    <div class="wrapper" v-show="moduleFlag.tjFlag">
+        <div class="video-wrap">
+            <div class="banner-wrap">
+                <div class="banner-video">
+                    <div class="p-center play-btn" v-touch="playVideo" data-vid="http://v2.g.mi.com/4b9c95164ecf15203883d0862dab2cca.mp4"></div>
+                </div>
+                <p class="banner-title">小米超神各路英雄大集锦</p>
+            </div>
+            <h6 class="video-like">猜你喜欢</h6>
+            <ul>
+                <li >
+                    <div class="video-img">
+                        <img src="../xmcs/img/video-img.png"/>
+                        <div class="p-center video-play" v-touch="playVideo" data-vid="http://v2.g.mi.com/4b9c95164ecf15203883d0862dab2cca.mp4"></div>
+                    </div>
+                    <p class="video-title">新手英雄</p>
+                </li>
+                <li >
+                    <div class="video-img">
+                        <img src="../xmcs/img/video-img.png"/>
+                        <div class="p-center video-play" v-touch="playVideo" data-vid="http://v2.g.mi.com/34494ffb06787e12d1e0e5a115456803.mp4"></div>
+                    </div>
+                    <p class="video-title">剑侠世界</p>
+                </li>
+                <li >
+                    <div class="video-img">
+                        <img src="../xmcs/img/video-img.png"/>
+                        <div class="p-center video-play" v-touch="playVideo" data-vid="http://v2.g.mi.com/82a5458b37106568755ab8dc448aa8a4.mp4"></div>
+                    </div>
+                    <p class="video-title">小米枪战app</p>
+                </li>
+                <li >
+                    <div class="video-img">
+                        <img src="../xmcs/img/video-img.png"/>
+                        <div class="p-center video-play" v-touch="playVideo" ></div>
+                    </div>
+                    <p class="video-title">第七超强战队</p>
+                </li>
+                <li >
+                    <div class="video-img">
+                        <img src="../xmcs/img/video-img.png"/>
+                        <div class="p-center video-play" v-touch="playVideo" ></div>
+                    </div>
+                    <p class="video-title">第七超强战队</p>
+                </li>
+                <li >
+                    <div class="video-img">
+                        <img src="../xmcs/img/video-img.png"/>
+                        <div class="p-center video-play"></div>
+                    </div>
+                    <p class="video-title">第七超强战队</p>
+                </li>
+
+<!--                <li v-for="item in listData" v-on:click="jumpUrl" data-href="detail.html?hid={{item.id}}">
+                    <div class="tj-icon">
+                        <img v-bind:src="'noMD5/listicons/'+item.id+'.png'"/>
+                    </div>
+                    <p class="tj-name">{{item.name}}</p>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+    <!-- <div class="wrapper" v-show="!moduleFlag.tjFlag&&!moduleFlag.actFlag&&!moduleFlag.ggFlag">
+        <div class="empty">暂无内容</div>
+    </div> -->
+    <c-footer footer-tab="video"></c-footer>
+</div>
+<div class="video-alert" id="video_wrapper">
+    <div class="close">关闭</div>
+    <div id="myvideo">
+        <video preload="auto" class="h5-video" width="100%" height="100%" id="video-player" webkit-playsinline="webkit-playsinline" controls="controls" loop="loop" src="">
+        </video>
+    </div>
+</div>
+<c-loading v-bind:load="loadFlag"></c-loading>
+<script type="text/javascript" src="js/base.js"></script><script type="text/javascript" src="js/video.js"></script></body>
+</html>

@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+h1{
+    margin: 30px 0 ;
+    text-align: center;
+    color: #3b6973;
+}
+.first-wrap{
+
+}
+#imgWrap,.result-wrap{
+    width: 1100px;
+    height: 440px;
+    font-size: 0;
+    overflow: hidden;
+    margin: 0 auto;
+    background-color: #d6edf5;
+    padding: 20px 0 0 10px;
+    position: relative;
+    perspective: 1100px
+}
+.name{
+    float: left;
+    margin: 0 10px 20px 0;
+    width: 100px;
+    height: 90px;
+    font-size: 40px;
+    line-height: 90px;
+    text-align: center;
+    cursor: pointer;
+    *cursor:hand;
+    /*background-image: url(img/name-all1.png);*/
+    background-color: #f9feff;
+}
+.name.selected{
+    background-color: #5aa9b9;
+    color: #fff;
+}
+.btn{
+    width: 200px;
+    text-align: center;
+    font: 18px/40px "microsoft yahei";
+    color: #fff;
+    background:#5aa9b9;
+    margin: 50px auto 0;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,.2);
+    cursor: pointer;
+}
+.btn:hover{
+    background:#539faf;
+}
+.result-wrap{
+    font-size: 25px;
+    display: none;
+}
+.result-wrap h1{
+    font-size: 30px;
+    margin-top: 110px;
+}
+.closed{
+    width: 42px;
+    height: 42px;
+    background: #539faf;
+    top: 0;
+    right:0;
+    cursor: pointer;
+    position: absolute;
+}
+.arrow{
+    position: absolute;
+    width: 31px;
+    height: 31px;
+    left: 6px;
+    top: 6px;
+    background: url(../img/closs-arrow.png) no-repeat;
+    -webkit-transition: all .4s linear;
+    -moz-transition: all .4s linear;
+    -ms-transition: all .4s linear;
+    -o-transition: all .4s linear;
+    transition: all .4s linear;
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
+}
+.arrow:hover {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+.animated{
+    animation-duration: 2s;
+    animation-name: speak;
+    text-align: center;
+    color: #3b6973
+}
+@-webkit-keyframes speak {
+    from {
+        opacity: .3;
+        transform: scale(0);
+        -webkit-transform: scale(0)
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes speak {
+    0% {
+        opacity: .3;
+        transform: scale(0);
+        -webkit-transform: scale(0)
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        -webkit-transform: scale(1)
+    }
+}

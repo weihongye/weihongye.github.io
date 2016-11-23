@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>翻滚吧，图片墙！</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+       #imgWrap{
+           width: 1100px;
+           /*height: 450px;*/
+           font-size: 0;
+           overflow: hidden;
+           margin: 0 auto;
+           background-color: #d6edf5;
+           padding: 20px 0 0 10px;
+           perspective: 1100px
+       }
+        #imgWrap .name{
+            float: left;
+            margin: 0 10px 20px 0;
+            width: 100px;
+            height: 90px;
+            font-size: 40px;
+            line-height: 90px;
+            text-align: center;
+            /*background-image: url(img/name-all1.png);*/
+            background-color: #f9feff;
+        }
+        .name.selected{
+            background-color: #f9feff;
+        }
+        #btn{
+            width: 100px;
+            text-align: center;
+            font: 16px/40px "microsoft yahei";
+            color: #fff;
+            padding: 0 20px;
+            background: #007bc4;
+            margin: 80px auto 0;
+            border-radius: 5px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,.2);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="imgWrap">
+        <div class="name selected">熊</div><div class="name">海</div><div class="name">刘</div><div class="name">张</div>
+        <div class="name">红</div><div class="name">明</div><div class="name">艳</div><div class="name">娜</div>
+        <div class="name">悠</div><div class="name">英</div><div class="name">希</div><div class="name">洁</div>
+        <div class="name">韦</div><div class="name">艳</div><div class="name">星</div><div class="name">赵</div>
+        <div class="name">楠</div><div class="name">美</div><div class="name">雯</div><div class="name">艺</div>
+        <div class="name">王</div><div class="name">桐</div><div class="name">琪</div><div class="name">佳</div>
+        <div class="name">荣</div><div class="name">亮</div><div class="name">优</div><div class="name">结</div>
+        <div class="name">玲</div><div class="name">萌</div><div class="name">雅</div><div class="name">玉</div>
+        <div class="name">静</div><div class="name">碧</div><div class="name">淑</div><div class="name">萱</div>
+        <div class="name">叶</div><div class="name">璇</div><div class="name">筱</div><div class="name">伊</div>
+    </div>
+    <div id="btn">点击查看</div>
+<script>
+
+    window.onload = function(){
+        //扇形效果
+        var btn = document.getElementById('btn');
+        var imgs = document.querySelectorAll('.name');
+        var imgsLen = imgs.length;
+        var canClicked = true;
+
+        btn.onclick = function(){
+            if(!canClicked)return;
+            canClicked = false;
+            var endNum = 0;//运动完成的图片数量
+            for(var i= 0; i<imgsLen; i++){
+                (function(i){//函数声明的形式，便于传递和引用i
+                    setTimeout(function(){
+                        montion(imgs[i],'10ms',function(){
+                            //第一个运动：变小并消失
+                            this.style.transform = 'scale(0)';
+                        },function(){//两条属性，所以transitionend会执行lenth*2次
+                            //第二个运动：变大
+                            montion(this,'1s',function(){
+                                this.style.transform = 'scale(1)';
+                                this.style.opacity = 0;
+                            },function(){
+                                endNum++;
+                                if(endNum==imgsLen){//所有图片第二次运动完成
+                                    toBig();
+                                }
+                            });
+                        });
+                    },Math.random()*1000);
+                })(i);
+            }
+        };
+
+        //第三次运动效果
+        function toBig(){
+            //坐标轴： x平行于地面，y垂直地面，z轴垂直屏幕
+            for(var i= 0;i<imgsLen;i++){
+                var allNum = 0;
+                imgs[i].style.transition = '';
+                //想要一个物体有css3的一些变化，需要给初始值
+                imgs[i].style.transform = 'rotateY(0) translateZ(-'+ Math.random()*500 +'px)';
+                (function(i){
+                    setTimeout(function(){
+                        montion(imgs[i],'2s',function(){
+                            this.style.opacity = 1;
+                            this.style.transform = 'rotateY(360deg) translateZ(0)';
+                        },function(){
+                            allNum++;
+                            if(allNum==imgsLen){//所有图片第二次运动完成
+                                canClicked = true;
+                            }
+                        });
+                    },Math.random()*1000);
+                })(i);
+            }
+        }
+
+        //运动函数：运动的对象，运动的时间，运动的属性函数，运动完的callback
+        function montion(obj, time, doFn, cb){
+            obj.style.transition = time;
+            doFn.call(obj); //调用函数，并把this指向obj   //使montion()里的this都是指向obj
+            var called = false;//解决transitionend调用2次的问题
+            obj.addEventListener('transitionend',function(){
+                if(!called){
+                    cb&&cb.call(obj);
+                    called = true;
+                }
+            },false);
+        }
+    };
+</script>
+
+</body>
+</html>

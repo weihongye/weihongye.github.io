@@ -46,11 +46,11 @@ window.onload = function () {
             btnClass = btnClasses.why;
             tip = tips.why;
         }else if(name == '白熊头'){
-            btnTxt = btnTxts.gou;
+            btnTxt = btnTxts.why;
             btnClass = btnClasses.why;
             tip = tips.gou;
         }else if(name == '狗'){
-            btnTxt = btnTxts.gou;
+            btnTxt = btnTxts.why;
             btnClass = btnClasses.why;
             tip = tips.gou;
         }else if(name == '黑熊头'){
@@ -69,8 +69,7 @@ window.onload = function () {
             $('.closed').click();
         });
         $('.why-btn').click(function(){
-            window.location.href = 'photoalbum/demo1/index.html';
-            //window.location.href = 'html/card/animation.html';
+            window.location.href = 'html/card/animation.html';
         });
         $('.die-btn').click(function(){
             window.location.href = 'html/cure.html';

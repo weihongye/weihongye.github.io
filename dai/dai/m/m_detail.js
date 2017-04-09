@@ -1,4 +1,4 @@
-webpackJsonp([4],{
+webpackJsonp([2],{
 
 /***/ 13:
 /***/ function(module, exports, __webpack_require__) {
@@ -23,19 +23,10 @@ webpackJsonp([4],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(Vue, $) {__webpack_require__(29);
+	/* WEBPACK VAR INJECTION */(function($, Vue) {__webpack_require__(21);
 	(function () {
-	    var listAll = [];
-	    var vm = new Vue({
-	        el: '#main',
-	        data: {
-	            listData: listAll
-	        },
-	        components: {
-	            'c-footer': __webpack_require__(13),
-	            'c-header': __webpack_require__(15)
-	        }
-	    });
+	    var newsData = [],
+	            newsId = parseInt(getQueryString('id'))-1;
 	    $.ajax({
 	        type: 'GET',
 	        url: 'noMD5/news.json',
@@ -43,17 +34,38 @@ webpackJsonp([4],{
 	        dataType: 'json',
 	        timeout: 2000,
 	        success: function (data, status, xhr) {
-	            vm.listData = data;
+	            vm.newsData = data[newsId];
 	        },
 	        error: function (xhr, type, error) {
 	        }
 	    });
+	    $('.img-wrap img').attr('src','noMD5/news-b'+(newsId+1)+'.jpg');
+	    var vm = new Vue({
+	        el: '#main',
+	        data: {
+	            newsData: newsData
+	        },
+	        components: {
+	            'c-footer': __webpack_require__(13),
+	            'c-header': __webpack_require__(15)
+	        },
+	        ready:function(){
+	        }
+	    });
+	    function getQueryString(name) {
+	        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+	        var r = window.location.search.substr(1).match(reg);
+	        if (r != null) {
+	            return r[2];
+	        }
+	        return '';
+	    }
 	})();
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(16)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16), __webpack_require__(1)))
 
 /***/ },
 
-/***/ 29:
+/***/ 21:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
@@ -61,4 +73,4 @@ webpackJsonp([4],{
 /***/ }
 
 });
-//# sourceMappingURL=dai_news.js.map
+//# sourceMappingURL=m_detail.js.map

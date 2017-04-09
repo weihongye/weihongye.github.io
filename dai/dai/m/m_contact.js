@@ -35,14 +35,14 @@ webpackJsonp([1],{
 	    function setMapEvent(){
 	        map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
 	        map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
-	        map.enableKeyboard();//启用键盘上下左右键移动地图
+	        //map.enableKeyboard();//启用键盘上下左右键移动地图
 	        map.enableAutoResize();//启用自动适应容器尺寸变化，默认启用。
 	    }
 	
 	    //地图控件添加函数：
 	    function addMapControl(){
-	        //var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
-	        //map.addControl(ctrl_nav);
+	        var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+	        map.addControl(ctrl_nav);
 	        var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
 	        map.addControl(ctrl_sca);
 	    }
@@ -118,4 +118,4 @@ webpackJsonp([1],{
 /***/ }
 
 });
-//# sourceMappingURL=dai_contact.js.map
+//# sourceMappingURL=m_contact.js.map

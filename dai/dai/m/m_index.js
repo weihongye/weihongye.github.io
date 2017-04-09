@@ -425,7 +425,7 @@ webpackJsonp([3],{
 	$(window).bind("load", function () {
 	    var timeout = setTimeout(function () {
 	        $('.lazy').trigger("loadImg");
-	    }, 50);
+	    }, 10);
 	});
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(16)))
 
@@ -1042,4 +1042,4 @@ webpackJsonp([3],{
 /***/ }
 
 });
-//# sourceMappingURL=dai_index.js.map
+//# sourceMappingURL=m_index.js.map

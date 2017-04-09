@@ -76,7 +76,7 @@
 /******/ 			script.charset = 'utf-8';
 /******/ 			script.async = true;
 /******/
-/******/ 			script.src = __webpack_require__.p + "common/" + ({"0":"dai_common","1":"dai_contact","2":"dai_detail","3":"dai_index","4":"dai_news"}[chunkId]||chunkId) + "." + {"0":"1db26bb0","1":"fbafe79b","2":"6450ea00","3":"fb779e8d","4":"6c0b8912"}[chunkId] + ".min.js";
+/******/ 			script.src = __webpack_require__.p + "common/" + ({"0":"m_common","1":"m_contact","2":"m_detail","3":"m_index","4":"m_news"}[chunkId]||chunkId) + "." + {"0":"1db26bb0","1":"b986aa13","2":"6450ea00","3":"59cb8e03","4":"6c0b8912"}[chunkId] + ".min.js";
 /******/ 			head.appendChild(script);
 /******/ 		}
 /******/ 	};
@@ -2176,4 +2176,4 @@
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=vendor.dai.js.map
+//# sourceMappingURL=vendor.m.js.map

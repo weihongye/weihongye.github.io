@@ -136,9 +136,7 @@ a, a:active, a:hover, a:visited {
   text-decoration: none;
   display: block;
   -webkit-touch-callout: none;
-  /* 禁止长按链接与图片弹出菜单 */
   -webkit-tap-highlight-color: transparent;
-  /* For some Androids */
   -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; }
 
 .clear::after {
@@ -183,7 +181,8 @@ a, a:active, a:hover, a:visited {
 .container {
   width: 100%;
   overflow-x: hidden;
-  position: relative; }
+  position: relative;
+  -webkit-overflow-scrolling: touch; }
 
 .banner {
   width: 100%;
@@ -388,4 +387,41 @@ a, a:active, a:hover, a:visited {
   background: url(img/phone.png);
   background-size: 100% 100%; }
 
-/*# sourceMappingURL=dai_common.css.map*/
+.container {
+  height: 100%;
+  overflow: hidden; }
+
+.address-wrap {
+  position: absolute;
+  z-index: 100;
+  left: 4.62963%;
+  bottom: 3.51852%;
+  width: 90.74074%;
+  background: #fff;
+  border-radius: 0.49383rem;
+  -webkit-border-radius: 0.49383rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3); }
+
+.address-icon {
+  width: 45.40816%;
+  padding-top: 41.93878%;
+  background: url(img/address1.jpg);
+  background-size: 100% 100%;
+  float: left; }
+
+.address-info {
+  width: 45.40816%;
+  padding: 0 4.08163%;
+  font-size: 0.8642rem;
+  line-height: 1.48148rem;
+  color: #696969;
+  float: right; }
+
+.address-info .name {
+  font-size: 1.23457rem;
+  color: #2a2a2a;
+  line-height: 1.97531rem;
+  padding: 5.47945% 0; }
+
+/*# sourceMappingURL=m_contact.css.map*/

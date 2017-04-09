@@ -136,9 +136,7 @@ a, a:active, a:hover, a:visited {
   text-decoration: none;
   display: block;
   -webkit-touch-callout: none;
-  /* 禁止长按链接与图片弹出菜单 */
   -webkit-tap-highlight-color: transparent;
-  /* For some Androids */
   -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; }
 
 .clear::after {
@@ -183,7 +181,8 @@ a, a:active, a:hover, a:visited {
 .container {
   width: 100%;
   overflow-x: hidden;
-  position: relative; }
+  position: relative;
+  -webkit-overflow-scrolling: touch; }
 
 .banner {
   width: 100%;
@@ -388,35 +387,4 @@ a, a:active, a:hover, a:visited {
   background: url(img/phone.png);
   background-size: 100% 100%; }
 
-.article {
-  padding-top: 0; }
-
-.news-content h1 {
-  border: none;
-  line-height: 1.97531rem;
-  padding: 5.55556% 0;
-  margin-right: 11%; }
-
-.news-content .info {
-  font-size: 0.8642rem;
-  color: #2a2a2a;
-  line-height: 2.22222rem; }
-
-.news-content .auth {
-  float: left;
-  width: 70%; }
-
-.news-content .time {
-  float: right;
-  width: 25%;
-  text-align: right; }
-
-.news-content .img {
-  display: block; }
-
-.news-content .txt-content {
-  font-size: 0.93827rem;
-  line-height: 2.22222rem;
-  color: #696969; }
-
-/*# sourceMappingURL=dai_detail.css.map*/
+/*# sourceMappingURL=m_common.css.map*/

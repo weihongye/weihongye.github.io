@@ -136,9 +136,7 @@ a, a:active, a:hover, a:visited {
   text-decoration: none;
   display: block;
   -webkit-touch-callout: none;
-  /* 禁止长按链接与图片弹出菜单 */
   -webkit-tap-highlight-color: transparent;
-  /* For some Androids */
   -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; }
 
 .clear::after {
@@ -183,7 +181,8 @@ a, a:active, a:hover, a:visited {
 .container {
   width: 100%;
   overflow-x: hidden;
-  position: relative; }
+  position: relative;
+  -webkit-overflow-scrolling: touch; }
 
 .banner {
   width: 100%;
@@ -389,40 +388,58 @@ a, a:active, a:hover, a:visited {
   background-size: 100% 100%; }
 
 .container {
-  height: 100%;
-  overflow: hidden; }
+  background-color: #f1f1f2; }
 
-.address-wrap {
-  position: absolute;
-  z-index: 100;
-  left: 4.62963%;
-  bottom: 3.51852%;
-  width: 90.74074%;
-  background: #fff;
-  border-radius: 0.49383rem;
-  -webkit-border-radius: 0.49383rem;
+.article .content {
+  padding-bottom: 6.5%; }
+
+.article h1 {
+  border-bottom: solid 1px #c2c2c2; }
+
+.news-ul {
+  padding-top: 0.74074%; }
+
+.news-ul li {
+  margin-top: 4.35185%;
+  border-radius: 0.74074rem;
+  -webkit-border-radius: 0.74074rem;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  background-color: #fff; }
+
+.news-ul li:active {
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3); }
 
-.address-icon {
-  width: 45.40816%;
-  padding-top: 41.93878%;
-  background: url(img/address1.jpg);
-  background-size: 100% 100%;
-  float: left; }
+.item-top {
+  width: 100%;
+  padding-top: 50%;
+  position: relative; }
 
-.address-info {
-  width: 45.40816%;
-  padding: 0 4.08163%;
-  font-size: 0.8642rem;
-  line-height: 1.48148rem;
-  color: #696969;
-  float: right; }
+.item-top img {
+  border-radius: 0.74074rem 0.74074rem 0 0;
+  -webkit-border-radius: 0.74074rem 0.74074rem 0 0; }
 
-.address-info .name {
-  font-size: 1.23457rem;
+.item-top .title {
+  color: #fff;
+  font-size: 0.93827rem;
+  line-height: 2.22222rem;
+  height: 2.22222rem;
+  padding: 0 3%;
+  width: 94%;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 5; }
+
+.news-ul .time {
   color: #2a2a2a;
-  line-height: 1.97531rem;
-  padding: 5.47945% 0; }
+  font-size: 0.93827rem;
+  line-height: 2.8642rem;
+  height: 2.8642rem;
+  padding: 0 3%;
+  width: 94%; }
 
-/*# sourceMappingURL=dai_contact.css.map*/
+/*# sourceMappingURL=m_news.css.map*/

@@ -1,4 +1,4 @@
-webpackJsonp([0],{
+webpackJsonp([4],{
 
 /***/ 13:
 /***/ function(module, exports, __webpack_require__) {
@@ -23,21 +23,37 @@ webpackJsonp([0],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(Vue) {__webpack_require__(2);
+	/* WEBPACK VAR INJECTION */(function(Vue, $) {__webpack_require__(29);
 	(function () {
+	    var listAll = [];
 	    var vm = new Vue({
 	        el: '#main',
+	        data: {
+	            listData: listAll
+	        },
 	        components: {
 	            'c-footer': __webpack_require__(13),
 	            'c-header': __webpack_require__(15)
 	        }
 	    });
+	    $.ajax({
+	        type: 'GET',
+	        url: 'noMD5/news.json',
+	        data: {},
+	        dataType: 'json',
+	        timeout: 2000,
+	        success: function (data, status, xhr) {
+	            vm.listData = data;
+	        },
+	        error: function (xhr, type, error) {
+	        }
+	    });
 	})();
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(16)))
 
 /***/ },
 
-/***/ 2:
+/***/ 29:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
@@ -45,4 +61,4 @@ webpackJsonp([0],{
 /***/ }
 
 });
-//# sourceMappingURL=dai_common.js.map
+//# sourceMappingURL=m_news.js.map

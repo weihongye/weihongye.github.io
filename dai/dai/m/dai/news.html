@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Pragma" CONTENT="no-cache">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1,minimum-scale=1, maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="keywords" content="超能贷,超能贷官方,超能贷官方网站">
+    <meta name="description" content="超能贷,超能贷官方,超能贷官方网站">
+    <title>【超能贷】 新闻中心</title>
+<link href="dai_news.css" rel="stylesheet"></head>
+<body id="main" v-cloak>
+<c-header></c-header>
+<div class="container">
+    <div class="article">
+        <h1>新闻中心</h1>
+        <div class="content">
+            <ul class="news-ul clear">
+                <li v-for="item in listData">
+                    <a href="detail.html?id={{item.id}}">
+                        <div class="item-top">
+                            <img class="full" v-bind:src="'noMD5/news-s'+item.id+'.jpg'"/>
+                            <p class="title ellipsis">{{item.title}}</p>
+                        </div>
+                        <div class="time">{{item.time}}</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <c-footer></c-footer>
+</div>
+<script type="text/javascript" src="vendor.dai.js"></script><script type="text/javascript" src="dai_news.js"></script><!-- <script></script> --><!-- <body><script src="js/$touch.js"></script></body></html> --></body><!-- <body><script src="js/$touch.js"></script></body></html> --></html><!-- <html><script src="js/$touch.js"></script></html> -->

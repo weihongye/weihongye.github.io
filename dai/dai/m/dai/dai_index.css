@@ -1,0 +1,486 @@
+@charset "UTF-8";
+/*
+*@param $url 图片地址
+* @param $el 添加背景图片的元素（class类名）
+* @param $picname  背景图片名称
+* @param $picformt 背景图片格式
+* @param $bgsize   背景图片大小，默认100%；
+* 使用：在最顶层中直接引入 @include elebg(unres-btn ,res-btn, png);
+*/
+/*
+* @Functions
+* @description Strip units from $number(去掉数值后的单位)
+* @param $number Include units number(含单位字符的数值)
+* @return pure number(纯数字)
+*/
+/*
+* @Functions
+* @description Convert the ratio to percentage between real length and max length (得到实际长度和最大长度的百分比)
+* @param $tinyLen 设计图上的实际尺寸
+* @param $maxLen  设计图上的容器最大尺寸
+* @return percent(百分比)
+*/
+/*
+* @Functions
+* @description Convert the ratio to percentage between real length and max length (得到实际长度和最大长度的百分比)
+* @param $Len 个数
+* @param $maxWidth  容器宽度
+* @return percent(百分比)
+*/
+/*
+* @Functions
+* @description Convert the px to rem (将实际的设计尺寸px转为相对的rem)
+* @param $origLen 设计图上的实际尺寸
+* @return rem
+*/
+/*
+*@Mixin
+*/
+/*
+* @Functions
+* @$num 边框宽度 rem px都可以
+* @$color 边框颜色
+* @$angle 角度 (单位)rem
+* @$direction :边框放心 around为四周
+*/
+/*
+* @Functions
+* @$num 边框宽度 rem px都可以 use before
+* @$color 边框颜色
+* @$angle 角度 (单位)rem
+* @$direction :边框放心 around为四周
+*/
+/*
+* @Functions
+* @$num 边框宽度 rem px都可以 use before 一个边框
+* @$color 边框颜色
+* @$angle 角度 (单位)rem
+* @$direction :边框
+*/
+@media screen and (min-width: 320px) {
+  html {
+    font-size: 75%; } }
+
+@media screen and (min-width: 360px) {
+  html {
+    font-size: 84.375%; } }
+
+@media screen and (min-width: 375px) {
+  html {
+    font-size: 87.890625%; } }
+
+@media screen and (min-width: 414px) {
+  html {
+    font-size: 97.03125%; } }
+
+@media screen and (min-width: 480px) {
+  html {
+    font-size: 112.5%; } }
+
+@media screen and (min-width: 540px) {
+  html {
+    font-size: 126.56%; } }
+
+@media screen and (min-width: 640px) {
+  html {
+    font-size: 150%; } }
+
+@media screen and (min-width: 720px) {
+  html {
+    font-size: 168.75%; } }
+
+@media screen and (min-width: 960px) {
+  html {
+    font-size: 225%; } }
+
+@media screen and (min-width: 1024px) {
+  html {
+    font-size: 240%; } }
+
+@media screen and (min-width: 1080px) {
+  html {
+    font-size: 253.125%; } }
+
+html, body {
+  height: 100%; }
+
+html, body, div, ul, li, p, span, h1, h2, h3, img, article, aside, details, figcaption, figure, footer, header, main, nav, section, summary {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: none; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #fff;
+  font-family: 'microsoft yahei';
+  position: relative; }
+
+html, body, div, ul, li, p, span {
+  margin: 0;
+  padding: 0; }
+
+ul, li {
+  list-style: none; }
+
+li {
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+  /* For some Androids */ }
+
+a, a:active, a:hover, a:visited {
+  text-decoration: none;
+  display: block;
+  -webkit-touch-callout: none;
+  /* 禁止长按链接与图片弹出菜单 */
+  -webkit-tap-highlight-color: transparent;
+  /* For some Androids */
+  -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; }
+
+.clear::after {
+  display: block;
+  content: '';
+  clear: both; }
+
+.center_y {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%); }
+
+.center_x {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%); }
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%); }
+
+.full, .shots img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; }
+
+.ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; }
+
+[v-cloak], .hidden {
+  display: none; }
+
+.container {
+  width: 100%;
+  overflow-x: hidden;
+  position: relative; }
+
+.banner {
+  width: 100%;
+  position: relative;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat; }
+
+.banner.detail {
+  padding-top: 55.55556%; }
+
+.banner.cn {
+  background-image: url(img/cn.jpg); }
+
+.banner.data {
+  background-image: url(img/data.jpg); }
+
+.banner.product {
+  background-image: url(img/product.jpg); }
+
+.banner.yunying {
+  background-image: url(img/yunying.jpg); }
+
+.article {
+  padding: 2.77778% 3.7037% 0; }
+
+.article h1 {
+  line-height: 2.96296rem;
+  font-size: 1.48148rem;
+  color: #000;
+  border-bottom: solid 1px #e4e4e4; }
+
+.article .content {
+  position: relative;
+  padding-bottom: 2.77778%; }
+
+.article p {
+  padding: 2.77778% 0;
+  line-height: 2.22222rem;
+  font-size: 0.93827rem;
+  color: #696969; }
+
+.article h2 {
+  font-size: 1.18519rem;
+  color: #696969;
+  padding: 2% 0 1%; }
+
+.article h2:first-child {
+  margin-top: 3%; }
+
+.article .img-wrap img {
+  width: 100%; }
+
+.nav-icon {
+  position: fixed;
+  top: 0.74074rem;
+  right: 0.61728rem;
+  width: 9.90741%;
+  padding-top: 9.62963%;
+  background: rgba(0, 0, 0, 0.5) url(img/nav-icon.png);
+  background-size: 100% 100%;
+  z-index: 400; }
+
+.nav-icon:active {
+  background-color: rgba(0, 0, 0, 0.8); }
+
+.nav-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 500;
+  display: none;
+  font-size: 1.11111rem; }
+
+.nav-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50.27778%;
+  height: 100%;
+  background: #fff;
+  transition: all .5s;
+  -webkit-transition: all .5s;
+  transform: translateX(100%);
+  -webkit-transform: translateX(100%); }
+
+.doNone {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 49.53704%;
+  height: 100%; }
+
+.nav-mask.showed {
+  display: block; }
+
+.nav-content.showed {
+  transform: translateX(0);
+  -webkit-transform: translateX(0); }
+
+.nav-banner {
+  width: 100%;
+  padding-top: 38.8582%;
+  background: url(img/nav-logo.jpg);
+  background-size: 100% 100%; }
+
+.nav-return {
+  line-height: 4.22222rem;
+  height: 4.22222rem;
+  background: #000;
+  color: #fff;
+  padding-left: 8.28729%; }
+
+.nav-link ul {
+  width: 100%;
+  display: none; }
+
+.nav-link ul:first-child {
+  display: block; }
+
+.nav-link li {
+  width: 100%;
+  line-height: 4.19753rem;
+  height: 4.19753rem;
+  position: relative; }
+
+.nav-link li:active {
+  background-color: #eee; }
+
+.nav-link .nav-return:active {
+  background-color: #555; }
+
+.nav-link li a {
+  margin-left: 8.28729%;
+  border-bottom: solid 1px #dedede;
+  color: #2e2e2e; }
+
+.nav-link li:after {
+  content: '';
+  height: 0.5rem;
+  width: 0.5rem;
+  display: block;
+  border: 0.13rem solid #ababab;
+  border-left-width: 0;
+  border-top-width: 0;
+  transform: translateY(-50%) rotate(-45deg);
+  -webkit-transform: translateY(-50%) rotate(-45deg);
+  position: absolute;
+  top: 50%;
+  right: 1.35802rem; }
+
+.nav-return:after {
+  display: none !important; }
+
+.footer-wrap {
+  width: 100%;
+  height: 4.93827rem;
+  position: relative;
+  background: #c7010b;
+  overflow: hidden;
+  white-space: nowrap; }
+
+.footer-fl {
+  float: left;
+  margin: 0 2.5% 0 1.66667%;
+  width: 60.18519%; }
+
+.footer-wrap li {
+  position: relative;
+  float: left;
+  height: 4.93827rem;
+  line-height: 4.93827rem;
+  margin: 0 6.92308%; }
+
+.footer-wrap li:last-child {
+  margin-right: 0; }
+
+.footer-wrap li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #fff; }
+
+.footer-wrap li:active a,
+.footer-wrap li a:active {
+  color: #bbb; }
+
+.footer-fr {
+  width: 33.7963%;
+  float: right;
+  position: relative;
+  height: 4.93827rem; }
+
+.footer-fr .phone-wrap {
+  width: 88.21918%;
+  padding-top: 20.98361%;
+  left: 0;
+  background: url(img/phone.png);
+  background-size: 100% 100%; }
+
+.bg1 {
+  padding-top: 55.55556%;
+  background-image: url(img/bg1.jpg); }
+
+.bg2 {
+  padding-top: 31.48148%;
+  background-image: url(img/bg2.jpg); }
+
+.shots-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 65.74074%; }
+
+.shots {
+  overflow-x: hidden; }
+
+.shots ul, .shots ul li {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+
+.shots ul li {
+  float: left;
+  position: relative; }
+
+.shots-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 78.24074%;
+  line-height: 2.46914rem;
+  font-size: 1.23457rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 0 18.05556% 0 3.7037%; }
+
+.shots-tool {
+  overflow: hidden;
+  position: absolute;
+  bottom: 3.05556%;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%); }
+
+.shots-tool .btn li {
+  float: left;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin: 0 0 0 0.5rem;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  color: transparent;
+  text-align: center;
+  background: #fff;
+  opacity: .6;
+  overflow: hidden;
+  text-indent: -9999px; }
+
+.shots-tool .btn li.on {
+  opacity: 1; }
+
+.shots-desc {
+  width: 94.44444%;
+  padding: 1.85185% 2.77778% 6.48148%;
+  overflow: hidden; }
+
+.shots-desc ul {
+  margin-top: 2.2549%;
+  position: relative;
+  height: 5.87654rem;
+  background: #f1f1f2; }
+
+.shots-desc ul:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 454px;
+  top: -16px;
+  width: 0;
+  height: 0;
+  border-left: 13px solid transparent;
+  border-right: 13px solid transparent;
+  border-bottom: 16px solid #f1f1f3; }
+
+.shots-desc li {
+  line-height: 5.87654rem;
+  height: 5.87654rem;
+  font-size: 0.93827rem;
+  color: #777;
+  display: none;
+  text-align: center; }
+
+.shots-desc li.on {
+  display: block; }
+
+/*# sourceMappingURL=dai_index.css.map*/

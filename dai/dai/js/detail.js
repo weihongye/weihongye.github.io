@@ -1,7 +1,7 @@
 $(function(){
     var listAll = [],
         newsId = parseInt(getQueryString('id'))-1;
-    $.getJSON("js/news.json",function(data){
+    $.getJSON("M/NOmd5/news.json",function(data){
         $.extend(true, listAll, data);
         getList(listAll);
     });

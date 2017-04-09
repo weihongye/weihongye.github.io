@@ -1,6 +1,6 @@
 $(function(){
     var listAll = [];
-    $.getJSON("js/news.json",function(data){
+    $.getJSON("m/noMD5/news.json",function(data){
         $.extend(true, listAll, data);
         getList(listAll);
     });
